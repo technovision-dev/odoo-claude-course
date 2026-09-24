@@ -1,0 +1,51 @@
+<!--
+  Odoo Apps Store listing template: static/description/index.html
+  The store sanitises this page. Keep to these rules (see .claude/rules/apps-store.md):
+  - a fragment: no <html>, <head> or <body>; start with <section class="container">
+  - no <script>, no <style> block, no external CSS or fonts, no iframes
+  - inline style="..." and Bootstrap classes only
+  - images are files in static/description/, referenced by relative path
+  - no links to other websites, no promotions; every claim must be true of the code
+  Delete this comment block before publishing.
+-->
+<section class="container" style="max-width: 1100px;">
+    <div class="row py-4">
+        <div class="col-12 text-center">
+            <h1 style="font-weight: 700;">{Module Name}</h1>
+            <p class="lead" style="color: #475569;">{One sentence: the problem it solves, for whom.}</p>
+            <p style="color: #64748b;">Odoo {18.0} · {Community and Enterprise} · {License}</p>
+        </div>
+    </div>
+
+    <!-- One block per feature: text on one side, its screenshot on the other. 3 to 6 blocks. -->
+    <div class="row py-3 align-items-center">
+        <div class="col-lg-5">
+            <h3 style="font-weight: 700;">{Feature, as an outcome}</h3>
+            <p style="color: #334155;">{What the user can now do, and the rule behind it.}</p>
+        </div>
+        <div class="col-lg-7">
+            <img src="screenshot_1.png" alt="{What the screenshot shows}" class="img-fluid"
+                 style="border: 1px solid #e2e8f0; border-radius: 6px;"/>
+        </div>
+    </div>
+
+    <div class="row py-4">
+        <div class="col-md-6">
+            <h3 style="font-weight: 700;">How it works</h3>
+            <ol style="color: #334155;">
+                <li>{Install, then the first menu to open.}</li>
+                <li>{The one configuration step.}</li>
+                <li>{What happens from then on.}</li>
+            </ol>
+        </div>
+        <div class="col-md-6">
+            <h3 style="font-weight: 700;">Compatibility and support</h3>
+            <ul style="color: #334155;">
+                <li>Odoo {18.0}, {Community and Enterprise}.</li>
+                <li>Depends on {apps}.</li>
+                <li>{N} automated tests.</li>
+                <li>Support: {support email}</li>
+            </ul>
+        </div>
+    </div>
+</section>

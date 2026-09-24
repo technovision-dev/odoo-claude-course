@@ -1,0 +1,20 @@
+line-length = 99
+target-version = "py310"
+
+[lint]
+select = ["E", "F", "W", "I", "B", "UP", "BLE"]
+# B023: recordset.filtered(lambda ...) runs the lambda at once, so loop variables are safe.
+ignore = ["E501", "B023"]
+
+[lint.isort]
+known-first-party = ["odoo"]
+section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+
+[format]
+quote-style = "double"
+
+[lint.per-file-ignores]
+# Odoo's __init__.py files import submodules for their side effects.
+"__init__.py" = ["F401"]
+# A manifest is a bare dict expression by design.
+"__manifest__.py" = ["B018"]

@@ -1,0 +1,10 @@
+[options]
+; Copy to odoo.conf, then: sed -i "s/YOUR_USER/$USER/g" odoo.conf
+addons_path = /home/YOUR_USER/odoo18/odoo/addons,/home/YOUR_USER/odoo18/addons-custom
+data_dir = /home/YOUR_USER/odoo18/data
+db_host = False
+db_port = False
+db_user = YOUR_USER
+db_password = False
+http_port = 8069
+admin_passwd = change-me

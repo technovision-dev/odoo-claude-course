@@ -1,0 +1,46 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./venv/bin/python odoo/odoo-bin:*)",
+      "Bash(./odoo/odoo-bin:*)",
+      "Bash(dropdb --if-exists course18_test)",
+      "Bash(dropdb --if-exists course19_test)",
+      "Bash(ruff check:*)",
+      "Bash(ruff format:*)",
+      "Bash(python3 tools/port19.py:*)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)"
+    ],
+    "deny": [
+      "Edit(./odoo/**)",
+      "Write(./odoo/**)",
+      "Bash(dropdb course18)",
+      "Bash(git push:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/protect_core.py\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/ruff_after_edit.py\""
+          }
+        ]
+      }
+    ]
+  }
+}

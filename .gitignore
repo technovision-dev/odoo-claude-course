@@ -1,0 +1,13 @@
+# Odoo core, virtualenv and local config live in the workspace but not in the repo
+/odoo/
+/venv/
+/odoo.conf
+# Maintainer-only scripts (machine-specific paths)
+/tools/maint/
+__pycache__/
+*.pyc
+*.po~
+*.dump
+*.sql.gz
+.DS_Store
+/data/
