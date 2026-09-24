@@ -1,0 +1,364 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_quotation_followup
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-24 21:36+0000\n"
+"PO-Revision-Date: 2026-09-24 21:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_quotation_followup
+#. odoo-python
+#: code:addons/sale_quotation_followup/models/sale_order.py:0
+msgid "%s has already received every follow-up."
+msgstr "%s استلم كل رسائل المتابعة بالفعل."
+
+#. module: sale_quotation_followup
+#. odoo-python
+#: code:addons/sale_quotation_followup/models/sale_order.py:0
+msgid "%s has opted out of quotation follow-ups."
+msgstr "%s طلب عدم استلام متابعات عروض الأسعار."
+
+#. module: sale_quotation_followup
+#: model:mail.template,body_html:sale_quotation_followup.mail_template_followup_friendly
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p>Hello <t t-out=\"object.partner_id.name or ''\">Customer</t>,</p>\n"
+"    <p>A few days ago we sent you quotation <strong t-out=\"object.name or ''\">S00001</strong>\n"
+"    for <t t-out=\"format_amount(object.amount_total, object.currency_id) or ''\">$ 100.00</t>.\n"
+"    Do you have any questions, or would you like us to change anything?</p>\n"
+"    <p>You can review and accept it online:\n"
+"    <a t-att-href=\"object.get_portal_url()\">view the quotation</a>.</p>\n"
+"    <p>Best regards,<br/><t t-out=\"object.user_id.name or object.company_id.name or ''\">Sales</t></p>\n"
+"</div>\n"
+"            "
+msgstr "<div style=\"margin: 0px; padding: 0px;\">\n    <p>مرحبًا <t t-out=\"object.partner_id.name or ''\">Customer</t>،</p>\n    <p>أرسلنا إليك منذ أيام عرض السعر <strong t-out=\"object.name or ''\">S00001</strong>\n    بقيمة <t t-out=\"format_amount(object.amount_total, object.currency_id) or ''\">$ 100.00</t>.\n    هل لديك أي أسئلة، أو تريد أن نغيّر شيئًا فيه؟</p>\n    <p>يمكنك مراجعته وقبوله عبر الإنترنت:\n    <a t-att-href=\"object.get_portal_url()\">عرض عرض السعر</a>.</p>\n    <p>مع أطيب التحيات،<br/><t t-out=\"object.user_id.name or object.company_id.name or ''\">Sales</t></p>\n</div>\n            "
+
+#. module: sale_quotation_followup
+#: model:mail.template,body_html:sale_quotation_followup.mail_template_followup_final
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p>Hello <t t-out=\"object.partner_id.name or ''\">Customer</t>,</p>\n"
+"    <p>We have not heard back about quotation <strong t-out=\"object.name or ''\">S00001</strong>.\n"
+"    <t t-if=\"object.validity_date\">It is valid until <t t-out=\"format_date(object.validity_date) or ''\">01/01/2026</t>.</t>\n"
+"    If your plans have changed, just reply to this email and we will close it.</p>\n"
+"    <p><a t-att-href=\"object.get_portal_url()\">View the quotation</a></p>\n"
+"    <p>Best regards,<br/><t t-out=\"object.user_id.name or object.company_id.name or ''\">Sales</t></p>\n"
+"</div>\n"
+"            "
+msgstr "<div style=\"margin: 0px; padding: 0px;\">\n    <p>مرحبًا <t t-out=\"object.partner_id.name or ''\">Customer</t>،</p>\n    <p>لم يصلنا رد بخصوص عرض السعر <strong t-out=\"object.name or ''\">S00001</strong>.\n    <t t-if=\"object.validity_date\">وهو صالح حتى <t t-out=\"format_date(object.validity_date) or ''\">01/01/2026</t>.</t>\n    إن تغيّرت خططك، يكفي أن ترد على هذه الرسالة وسنغلقه.</p>\n    <p><a t-att-href=\"object.get_portal_url()\">عرض عرض السعر</a></p>\n    <p>مع أطيب التحيات،<br/><t t-out=\"object.user_id.name or object.company_id.name or ''\">Sales</t></p>\n</div>\n            "
+
+#. module: sale_quotation_followup
+#. odoo-python
+#: code:addons/sale_quotation_followup/models/quotation_followup_level.py:0
+msgid "A follow-up must be at least one day after sending."
+msgstr "يجب أن تكون المتابعة بعد الإرسال بيوم واحد على الأقل."
+
+#. module: sale_quotation_followup
+#: model:ir.model.constraint,message:sale_quotation_followup.constraint_quotation_followup_log_order_level_unique
+msgid "A quotation is followed up only once per level."
+msgstr "لا تُرسل لعرض السعر أكثر من متابعة واحدة لكل مستوى."
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_level__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,help:sale_quotation_followup.field_quotation_followup_level__create_activity
+msgid "Also schedule a To-Do activity on the quotation for its salesperson."
+msgstr "جدولة نشاط «مهمة» على عرض السعر لمندوب المبيعات المسؤول عنه أيضًا."
+
+#. module: sale_quotation_followup
+#: model:mail.template,subject:sale_quotation_followup.mail_template_followup_friendly
+msgid "Any questions about quotation {{ object.name }}?"
+msgstr "هل لديك أي أسئلة بخصوص عرض السعر {{ object.name }}؟"
+
+#. module: sale_quotation_followup
+#: model_terms:ir.ui.view,arch_db:sale_quotation_followup.quotation_followup_level_view_form
+#: model_terms:ir.ui.view,arch_db:sale_quotation_followup.quotation_followup_level_view_search
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: sale_quotation_followup
+#: model:ir.model,name:sale_quotation_followup.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_level__company_id
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_log__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: sale_quotation_followup
+#: model:ir.model,name:sale_quotation_followup.model_res_config_settings
+msgid "Config Settings"
+msgstr "إعدادات التهيئة"
+
+#. module: sale_quotation_followup
+#: model:ir.model,name:sale_quotation_followup.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: sale_quotation_followup
+#: model_terms:ir.actions.act_window,help:sale_quotation_followup.quotation_followup_level_action
+msgid "Create your first follow-up level"
+msgstr "أنشئ أول مستوى متابعة"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_level__create_uid
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_log__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_level__create_date
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_log__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_log__partner_id
+msgid "Customer"
+msgstr "العميل"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_log__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_level__days_after_sent
+msgid "Days After Sent"
+msgstr "الأيام بعد الإرسال"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,help:sale_quotation_followup.field_quotation_followup_level__days_after_sent
+msgid ""
+"Days after the quotation was sent. The follow-up goes out once the quotation"
+" is at least this old and still has no answer."
+msgstr "عدد الأيام بعد إرسال عرض السعر. تُرسل المتابعة عندما يبلغ عمر عرض السعر هذا العدد على الأقل ولم يصل رد بعد."
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_level__display_name
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_log__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: sale_quotation_followup
+#: model:ir.model.constraint,message:sale_quotation_followup.constraint_quotation_followup_level_days_company_unique
+msgid "Each company can have only one follow-up level per number of days."
+msgstr "لكل شركة مستوى متابعة واحد فقط لكل عدد من الأيام."
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_level__mail_template_id
+msgid "Email Template"
+msgstr "قالب البريد الإلكتروني"
+
+#. module: sale_quotation_followup
+#: model_terms:ir.ui.view,arch_db:sale_quotation_followup.res_config_settings_view_form_inherit_quotation_followup
+msgid "Email customers automatically about quotations they have not answered."
+msgstr "راسل العملاء تلقائيًا بخصوص عروض الأسعار التي لم يردوا عليها."
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields.selection,name:sale_quotation_followup.selection__quotation_followup_log__result__failed
+#: model_terms:ir.ui.view,arch_db:sale_quotation_followup.quotation_followup_log_view_search
+msgid "Failed"
+msgstr "فشل"
+
+#. module: sale_quotation_followup
+#. odoo-python
+#: code:addons/sale_quotation_followup/models/sale_order.py:0
+msgid "Follow up on quotation %s"
+msgstr "تابع عرض السعر %s"
+
+#. module: sale_quotation_followup
+#: model:ir.actions.act_window,name:sale_quotation_followup.quotation_followup_level_action
+#: model:ir.ui.menu,name:sale_quotation_followup.menu_quotation_followup_level
+#: model_terms:ir.ui.view,arch_db:sale_quotation_followup.res_config_settings_view_form_inherit_quotation_followup
+msgid "Follow-up Levels"
+msgstr "مستويات المتابعة"
+
+#. module: sale_quotation_followup
+#. odoo-python
+#: code:addons/sale_quotation_followup/models/sale_order.py:0
+msgid "Follow-up “%s” sent to the customer."
+msgstr "أُرسلت المتابعة «%s» إلى العميل."
+
+#. module: sale_quotation_followup
+#. odoo-python
+#: code:addons/sale_quotation_followup/models/sale_order.py:0
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_sale_order__followup_log_ids
+#: model_terms:ir.ui.view,arch_db:sale_quotation_followup.view_order_form_inherit_quotation_followup
+msgid "Follow-ups"
+msgstr "المتابعات"
+
+#. module: sale_quotation_followup
+#. odoo-python
+#: code:addons/sale_quotation_followup/models/sale_order.py:0
+msgid "Follow-ups sent: %s"
+msgstr "المتابعات المرسلة: %s"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_sale_order__followup_count
+msgid "Followup Count"
+msgstr "عدد المتابعات"
+
+#. module: sale_quotation_followup
+#: model_terms:ir.actions.act_window,help:sale_quotation_followup.quotation_followup_level_action
+msgid ""
+"For example: a friendly check-in 3 days after sending, and a last reminder "
+"after 14 days."
+msgstr "مثلًا: متابعة ودّية بعد 3 أيام من الإرسال، وتذكير أخير بعد 14 يومًا."
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_level__id
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_log__id
+msgid "ID"
+msgstr "المعرّف"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_level__write_uid
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_log__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_level__write_date
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_log__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_log__level_id
+#: model_terms:ir.ui.view,arch_db:sale_quotation_followup.quotation_followup_log_view_search
+msgid "Level"
+msgstr "المستوى"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_level__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,help:sale_quotation_followup.field_res_partner__quotation_followup_optout
+#: model:ir.model.fields,help:sale_quotation_followup.field_res_users__quotation_followup_optout
+msgid "Never send automatic follow-ups for this customer's quotations."
+msgstr "لا تُرسل أبدًا متابعات تلقائية لعروض أسعار هذا العميل."
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_res_partner__quotation_followup_optout
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_res_users__quotation_followup_optout
+msgid "No quotation follow-ups"
+msgstr "بدون متابعات لعروض الأسعار"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_log__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: sale_quotation_followup
+#. odoo-python
+#: code:addons/sale_quotation_followup/models/sale_order.py:0
+msgid "Only sent quotations can be followed up (%s)."
+msgstr "لا يمكن متابعة إلا عروض الأسعار المرسلة (%s)."
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_log__order_id
+msgid "Quotation"
+msgstr "عرض السعر"
+
+#. module: sale_quotation_followup
+#: model:ir.model,name:sale_quotation_followup.model_quotation_followup_level
+msgid "Quotation Follow-up Level"
+msgstr "مستوى متابعة عرض السعر"
+
+#. module: sale_quotation_followup
+#: model:ir.model,name:sale_quotation_followup.model_quotation_followup_log
+msgid "Quotation Follow-up Log"
+msgstr "سجل متابعات عروض الأسعار"
+
+#. module: sale_quotation_followup
+#: model:mail.template,name:sale_quotation_followup.mail_template_followup_friendly
+msgid "Quotation Follow-up: Friendly"
+msgstr "متابعة عرض السعر: ودّية"
+
+#. module: sale_quotation_followup
+#: model:mail.template,name:sale_quotation_followup.mail_template_followup_final
+msgid "Quotation Follow-up: Last reminder"
+msgstr "متابعة عرض السعر: تذكير أخير"
+
+#. module: sale_quotation_followup
+#: model:ir.actions.act_window,name:sale_quotation_followup.quotation_followup_log_action
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_res_company__quotation_followup_enabled
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_res_config_settings__quotation_followup_enabled
+#: model:ir.ui.menu,name:sale_quotation_followup.menu_quotation_followup_log
+msgid "Quotation Follow-ups"
+msgstr "متابعات عروض الأسعار"
+
+#. module: sale_quotation_followup
+#: model:ir.actions.server,name:sale_quotation_followup.ir_cron_send_quotation_followups_ir_actions_server
+msgid "Quotation Follow-ups: send due follow-ups"
+msgstr "متابعات عروض الأسعار: إرسال المتابعات المستحقة"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_sale_order__quotation_sent_date
+msgid "Quotation Sent On"
+msgstr "تاريخ إرسال عرض السعر"
+
+#. module: sale_quotation_followup
+#: model:mail.template,subject:sale_quotation_followup.mail_template_followup_final
+msgid "Quotation {{ object.name }}: still interested?"
+msgstr "عرض السعر {{ object.name }}: هل ما زلت مهتمًا؟"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_log__result
+msgid "Result"
+msgstr "النتيجة"
+
+#. module: sale_quotation_followup
+#: model:ir.model,name:sale_quotation_followup.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_level__create_activity
+msgid "Schedule a To-Do for the salesperson"
+msgstr "جدولة مهمة لمندوب المبيعات"
+
+#. module: sale_quotation_followup
+#: model:ir.actions.server,name:sale_quotation_followup.action_server_send_followup_now
+msgid "Send follow-up now"
+msgstr "أرسل المتابعة الآن"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields.selection,name:sale_quotation_followup.selection__quotation_followup_log__result__sent
+msgid "Sent"
+msgstr "أُرسلت"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_quotation_followup_level__sequence
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,help:sale_quotation_followup.field_sale_order__quotation_sent_date
+msgid ""
+"Set when the quotation is marked as sent. Follow-up levels count from this "
+"date."
+msgstr "يُضبط عند تعليم عرض السعر كمُرسل. تُحسب مستويات المتابعة من هذا التاريخ."
+
+#. module: sale_quotation_followup
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_res_company__quotation_followup_skip_expired
+#: model:ir.model.fields,field_description:sale_quotation_followup.field_res_config_settings__quotation_followup_skip_expired
+msgid "Skip expired quotations"
+msgstr "تخطي عروض الأسعار المنتهية"
