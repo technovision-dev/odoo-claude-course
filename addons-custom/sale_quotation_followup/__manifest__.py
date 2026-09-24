@@ -1,7 +1,7 @@
 {
     "name": "Quotation Follow-ups",
     "summary": "Follow up automatically on quotations sent but not answered, by configurable levels",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Sales/Sales",
     "author": "TechnoVision",
     "website": "https://technovision.dev",

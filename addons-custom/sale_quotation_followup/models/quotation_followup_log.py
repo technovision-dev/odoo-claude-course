@@ -21,10 +21,7 @@ class QuotationFollowupLog(models.Model):
     )
     note = fields.Char()
 
-    _sql_constraints = [
-        (
-            "order_level_unique",
-            "unique(order_id, level_id)",
-            "A quotation is followed up only once per level.",
-        ),
-    ]
+    _order_level_unique = models.Constraint(
+        "unique(order_id, level_id)",
+        "A quotation is followed up only once per level.",
+    )

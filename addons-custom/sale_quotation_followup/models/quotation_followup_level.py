@@ -30,13 +30,10 @@ class QuotationFollowupLevel(models.Model):
         "res.company", required=True, default=lambda self: self.env.company
     )
 
-    _sql_constraints = [
-        (
-            "days_company_unique",
-            "unique(days_after_sent, company_id)",
-            "Each company can have only one follow-up level per number of days.",
-        ),
-    ]
+    _days_company_unique = models.Constraint(
+        "unique(days_after_sent, company_id)",
+        "Each company can have only one follow-up level per number of days.",
+    )
 
     @api.constrains("days_after_sent")
     def _check_days_after_sent(self):
