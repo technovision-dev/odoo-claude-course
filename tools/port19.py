@@ -35,6 +35,12 @@ def convert(match):
     return "".join(parts)
 
 
+def write(path, text):
+    """Write with LF line endings on every platform."""
+    with open(path, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(text)
+
+
 def main(src, dst):
     src, dst = Path(src), Path(dst)
     shutil.rmtree(dst, ignore_errors=True)
@@ -44,13 +50,13 @@ def main(src, dst):
     text, count = re.subn(r'"version": "18\.0\.', '"version": "19.0.', manifest.read_text("utf-8"))
     if count != 1:
         raise SystemExit("port19: manifest version not found")
-    manifest.write_text(text, "utf-8")
+    write(manifest, text)
 
     for path in (dst / "models").glob("*.py"):
         text = path.read_text("utf-8")
         new, count = CONSTRAINTS.subn(convert, text)
         if count:
-            path.write_text(new, "utf-8")
+            write(path, new)
             print(f"  {path.name}: {count} constraint block(s) converted")
     print("staged", dst)
 
