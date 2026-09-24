@@ -1,0 +1,21 @@
+{
+    "name": "Quotation Follow-ups",
+    "summary": "Follow up automatically on quotations sent but not answered, by configurable levels",
+    "version": "18.0.1.0.0",
+    "category": "Sales/Sales",
+    "author": "TechnoVision",
+    "website": "https://technovision.dev",
+    "support": "info@technovision.dev",
+    "license": "LGPL-3",
+    "depends": ["sale_management", "mail"],
+    "data": [
+        "security/security.xml",
+        "security/ir.model.access.csv",
+        "views/quotation_followup_level_views.xml",
+        "views/menus.xml",
+    ],
+    "demo": ["demo/quotation_followup_level_demo.xml"],
+    "installable": True,
+    "application": False,
+    "auto_install": False,
+}

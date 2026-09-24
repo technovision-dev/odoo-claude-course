@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_quotation_followup_level"
+              name="Follow-up Levels"
+              parent="sale.menu_sale_config"
+              action="quotation_followup_level_action"
+              groups="sales_team.group_sale_manager"
+              sequence="40"/>
+</odoo>
