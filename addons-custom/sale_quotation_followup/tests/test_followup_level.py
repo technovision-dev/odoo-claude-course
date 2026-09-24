@@ -15,6 +15,7 @@ class TestFollowupLevel(TransactionCase):
         Level = cls.env["quotation.followup.level"]
         Level.with_context(active_test=False).search([]).unlink()
         cls.level = Level.create({"name": "Check-in", "days_after_sent": 3})
+        cls.customer = cls.env["res.partner"].create({"name": "Nile Retail"})
 
     def test_creating_a_level_works(self):
         self.assertEqual(self.level.company_id, self.env.company)
@@ -28,3 +29,10 @@ class TestFollowupLevel(TransactionCase):
     def test_zero_days_is_refused(self):
         with self.assertRaises(ValidationError):
             self.env["quotation.followup.level"].create({"name": "Same day", "days_after_sent": 0})
+
+    def test_sending_a_quotation_stamps_the_sent_date(self):
+        order = self.env["sale.order"].create({"partner_id": self.customer.id})
+        self.assertFalse(order.quotation_sent_date)
+        order.action_quotation_sent()
+        self.assertTrue(order.quotation_sent_date)
+        self.assertFalse(order.copy().quotation_sent_date)

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_inherit_quotation_followup" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.quotation.followup</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <group name="sale" position="inside">
+                <field name="quotation_followup_optout" groups="sales_team.group_sale_salesman"/>
+            </group>
+        </field>
+    </record>
+</odoo>
