@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mail_template_followup_friendly" model="mail.template">
+            <field name="name">Quotation Follow-up: Friendly</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="subject">Any questions about quotation {{ object.name }}?</field>
+            <field name="email_from">{{ (object.user_id.email_formatted or object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.partner_id.id }}</field>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px;">
+    <p>Hello <t t-out="object.partner_id.name or ''">Customer</t>,</p>
+    <p>A few days ago we sent you quotation <strong t-out="object.name or ''">S00001</strong>
+    for <t t-out="format_amount(object.amount_total, object.currency_id) or ''">$ 100.00</t>.
+    Do you have any questions, or would you like us to change anything?</p>
+    <p>You can review and accept it online:
+    <a t-att-href="object.get_portal_url()">view the quotation</a>.</p>
+    <p>Best regards,<br/><t t-out="object.user_id.name or object.company_id.name or ''">Sales</t></p>
+</div>
+            </field>
+        </record>
+
+        <record id="mail_template_followup_final" model="mail.template">
+            <field name="name">Quotation Follow-up: Last reminder</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="subject">Quotation {{ object.name }}: still interested?</field>
+            <field name="email_from">{{ (object.user_id.email_formatted or object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.partner_id.id }}</field>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px;">
+    <p>Hello <t t-out="object.partner_id.name or ''">Customer</t>,</p>
+    <p>We have not heard back about quotation <strong t-out="object.name or ''">S00001</strong>.
+    <t t-if="object.validity_date">It is valid until <t t-out="format_date(object.validity_date) or ''">01/01/2026</t>.</t>
+    If your plans have changed, just reply to this email and we will close it.</p>
+    <p><a t-att-href="object.get_portal_url()">View the quotation</a></p>
+    <p>Best regards,<br/><t t-out="object.user_id.name or object.company_id.name or ''">Sales</t></p>
+</div>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -4,17 +4,20 @@
         <field name="name">Friendly check-in</field>
         <field name="sequence">10</field>
         <field name="days_after_sent">3</field>
+        <field name="mail_template_id" ref="mail_template_followup_friendly"/>
     </record>
     <record id="demo_level_7" model="quotation.followup.level">
         <field name="name">Second follow-up</field>
         <field name="sequence">20</field>
         <field name="days_after_sent">7</field>
+        <field name="mail_template_id" ref="mail_template_followup_friendly"/>
         <field name="create_activity" eval="True"/>
     </record>
     <record id="demo_level_14" model="quotation.followup.level">
         <field name="name">Last reminder</field>
         <field name="sequence">30</field>
         <field name="days_after_sent">14</field>
+        <field name="mail_template_id" ref="mail_template_followup_final"/>
         <field name="create_activity" eval="True"/>
     </record>
 </odoo>

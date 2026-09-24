@@ -1,4 +1,8 @@
-from . import quotation_followup_level
-from . import quotation_followup_log
-from . import res_partner
-from . import sale_order
+from . import (
+    quotation_followup_level,
+    quotation_followup_log,
+    res_company,
+    res_config_settings,
+    res_partner,
+    sale_order,
+)

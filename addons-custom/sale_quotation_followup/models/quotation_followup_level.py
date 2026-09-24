@@ -18,6 +18,7 @@ class QuotationFollowupLevel(models.Model):
     mail_template_id = fields.Many2one(
         "mail.template",
         string="Email Template",
+        required=True,
         domain="[('model', '=', 'sale.order')]",
     )
     create_activity = fields.Boolean(
