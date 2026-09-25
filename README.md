@@ -1,4 +1,4 @@
-# Build Odoo Modules 10x Faster with Claude Code: course workspace
+# Build Odoo Modules with Claude Code: Spec to Apps Store: course workspace
 
 This repository is the workspace for the course by Rasmy Potross (TechnoVision). You clone it
 and work inside it: it becomes `~/odoo18`, Odoo's core is cloned into `./odoo` next to your
@@ -7,7 +7,7 @@ modules, and Claude Code reads the `CLAUDE.md` and `.claude/` folder from here.
 ## Start
 
 ```
-git clone {GITHUB_COURSE_REPO} ~/odoo18
+git clone https://github.com/technovision-dev/odoo-claude-course.git ~/odoo18
 cd ~/odoo18
 git switch -c my-work section-0
 git clone https://github.com/odoo/odoo.git --branch 18.0 --depth 1 odoo
