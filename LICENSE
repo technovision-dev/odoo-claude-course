@@ -2,11 +2,6 @@ MIT License
 
 Copyright (c) 2026 TechnoVision (technovision.dev)
 
-This license covers everything in this repository except the Odoo module in
-addons-custom/sale_quotation_followup/, which is licensed under the GNU Lesser
-General Public License v3 (LGPL-3), as declared in its __manifest__.py. The
-texts of the LGPL-3 and of the GPL-3 it builds on are in LICENSES/.
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
